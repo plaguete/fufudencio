@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Qual personagem de fudencio você é </h1>
+    <div id="questionario">
+        <div class="perguntas">
+            <h1>qual a sua cor favorita</h1>
+            <label ><input type="radio" name="p1" class="pergunta" value="conrado">laranja</label>
+            <label><input type="radio" name="p1" class="pergunta" value="funeria">Roxo</label>
+            <label><input type="radio" name="p1" class="pergunta" value="zemaria">Rosa</label>
+            <label><input type="radio" name="p1" class="pergunta" value="peruibe">gelo</label>
+        </div>
+
+        <div class="perguntas">
+            <h1>qual seu tipo de louça vc seria</h1>
+            <label ><input type="radio" name="p2" class="pergunta" value="conrado">Copo</label>
+            <label><input type="radio" name="p2" class="pergunta" value="funeria">Xicara</label>
+            <label><input type="radio" name="p2" class="pergunta" value="zemaria">Prato</label>
+            <label><input type="radio" name="p2" class="pergunta" value="peruibe">Jarro</label>
+        </div>
+
+        <div class="perguntas">
+            <h1>qual meme atualizado que vc mais gosta</h1>
+            <label ><input type="radio" name="p3" class="pergunta" value="conrado">amostradinho</label>
+            <label><input type="radio" name="p3" class="pergunta" value="funeria">la ele</label>
+            <label><input type="radio" name="p3" class="pergunta"value="zemaria">casca de bala</label>
+            <label><input type="radio" name="p3" class="pergunta" value="peruibe">bora bill</label>
+        </div>
+
+        <div class="perguntas">
+            <h1>qual lider de revolução vc mais gosta</h1>
+            <label ><input type="radio" name="p4" class="pergunta" value="conrado">paulo kogos</label>
+            <label><input type="radio" name="p4" class="pergunta" value="funeria">lenin</label>
+            <label><input type="radio" name="p4" class="pergunta" value="zemaria">renato russo</label>
+            <label><input type="radio" name="p4" class="pergunta" value="peruibe">palhaço cassarola </label>
+        </div>
+        <h1 id="resultado">resultado</h1>
+        <button onclick="questionario()">resultado</button>
+        <h1 id="porceconrado"></h1>
+        <h1 id="porcefuneria"></h1>
+        <h1 id="porceze"></h1>
+        <h1 id="porceperuibe"></h1>
+    </div>
+</body>
+    <script>
+       function questionario(){
+    let conrado = 0;
+    let funeria = 0;
+    let zemaria = 0;
+    let peruibe = 0;
+
+    let radios = document.getElementsByClassName("pergunta")
+
+    for (let i=0; i<radios.length; i++) {
+        if(radios[i].checked){
+            if(radios[i].value === "conrado"){
+                conrado++;
+            } else if (radios[i].value === "funeria"){
+                funeria++;
+            } else if (radios[i].value === "zemaria"){
+                zemaria++;
+            } else if (radios[i].value === "peruibe"){
+                peruibe++;
+            }
+        }
+    }
+
+    let resultado = '';
+
+    if (conrado > funeria && conrado > zemaria && conrado > peruibe) {
+        resultado = "conrado";
+    } else if (funeria > conrado && funeria > zemaria && funeria > peruibe) {
+        resultado = "funeria";
+    } else if (zemaria > conrado && zemaria > funeria && zemaria > peruibe) {
+        resultado = "zemaria";
+    } else if (peruibe > conrado && peruibe > funeria && peruibe > zemaria) {
+        resultado = "peruibe";
+    }
+
+    // mostrando o resultado
+    document.getElementById('resultado').innerHTML = 'Seu é: ' + resultado;
+    document.getElementById('porceconrado').innerHTML = 'conrado: ' + conrado;
+    document.getElementById('porcefuneria').innerHTML = 'funeria: ' + funeria;
+    document.getElementById('porceze').innerHTML = 'zemaria: ' + zemaria;
+    document.getElementById('porceperuibe').innerHTML = 'peruibe: ' + peruibe;
+}
+    </script>
+</html>
